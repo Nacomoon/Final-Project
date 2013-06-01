@@ -1,3 +1,11 @@
+If you just copy and paste this into cloud it should work. Just put in constraints/objective function, press check mark
+box and then One. Here is an example of how to put in a constraint: 2 * x + 3 * y - z <= 5
+Basically same thing for objective function. Right now One will print out A,b,c, and a tableau called lptab.
+Each letter represents what you think it represents with A being a matrix, b & c as list, and lptab as a block_matrix.
+Also, the only difference between matrix and block matrix is how they print. There are no extra rows/columns.
+Either way, if you just want A,b,c then just delete the lptab stuff. Finally, just put in your code at the bottom
+and then pressing Two should run it. If you aren't finished then let me know and I'll put in some cvxopt stuff for Monday
+
 @interact(layout=[['inst1'],['inst2'],['varss'],['variables', 'con', 'ob'],['a']])
 def _(inst1 = text_control("To run program, first type in constraint equations and objective function, press checkbox and One to get an initial Tableau", label = ""),
       inst2 = text_control("Then press Two to get your answer.", label = ""),
