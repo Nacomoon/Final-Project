@@ -1,4 +1,4 @@
-If you just copy and paste this into a cloud worksheet it should work. Just put in constraints/objective function, 
+If you just copy and paste this into a cloud worksheet it should work. Just run, put in constraints/objective function, 
 press check mark box and then One. Here is an example of how to put in a constraint: 2 * x + 3 * y - z <= 5
 Basically same thing for objective function. Right now One will print out A,b,c, and a tableau called lptab.
 Each letter represents what you think it represents with A being a matrix, b & c as list, and lptab as a block_matrix.
