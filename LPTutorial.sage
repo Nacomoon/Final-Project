@@ -52,7 +52,7 @@ class LPTutSolver(object):
             _plotter(A,b)
         return {"lptab": lptab, "A": A, "b": b, "c": c}
     ######################################
-    def _plotter(self,A,b):
+    def _plotter(self,A,b):       #This plots the constraints and objective only for 2D graphs
         intcpt1=self.b[0]/self.A[0][1]
         intcpt2=self.b[1]/self.A[1][1]
         slope1=self.A[0][0]/self.A[0][1]
@@ -94,7 +94,7 @@ class LPTutSolver(object):
                     break
 
         if testP == False and testD == False:
-            print "The linear program is not bounded. We are done." #######Check to make sure this is correct!#####
+            print "The linear program is infeasible. We are done."
         return (testP, testD)
     #######################################
     def _pivcol(self,tableaux):
@@ -221,7 +221,7 @@ class LPTutSolver(object):
         testP = testres[0]
         testD = testres[1]
         counter = 1
-        if testP:
+        if testP:                     #preforming tests in the primal tableaux
             testdone = False
             while testdone == False:
                 if self._tut:
@@ -240,7 +240,7 @@ class LPTutSolver(object):
                     break
                 elif counter > 25:
                     break
-                else:
+                else:                                #if it is not done, print off the feasible soltn/objective
                     if self._tut:
                         line = "A feasible solution of the Primal is:\n"
                         line = line + self._printer(tableaux)
@@ -249,7 +249,7 @@ class LPTutSolver(object):
                         print line + str(objectivevalue)
                         print ""
                     counter += 1
-        elif testD:
+        elif testD:            #preforming tests in the dual tableaux
             testdone = False
             while testdone == False:
                 if self._tut:
@@ -268,7 +268,7 @@ class LPTutSolver(object):
                     break
                 elif counter > 25:
                     break
-                else:
+                else:                    #prints the dual fesaible soltn/value
                     if self._tut:
                         line = "A feasible solution of the Dual is:\n"
                         line = line + self._printer(tableaux) + "\n"
@@ -276,7 +276,7 @@ class LPTutSolver(object):
                         print line + str(tableaux[(self._m-1),(self._n-1)])
                         print ""
                     counter += 1
-        line = "The optimal solution to the Primal is:\n"
+        line = "The optimal solution to the Primal is:\n"        #once the algorithm is finished we print final soltn and max/min value
         line = line + self._printer(tableaux)
         line = line + "The maximum objective value of the Primal is:\n"
         m = -1
